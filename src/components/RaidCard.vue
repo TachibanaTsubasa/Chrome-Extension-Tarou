@@ -45,8 +45,10 @@ function getMsg(item: RaidInfo) {
 <template>
   <ElCard :body-style="{ padding: '5px' }">
     <div relative h-100px fc gap-10px text-sm>
-      <div v-if="raidInfo.visiable" i-carbon:star-filled absolute right-0 top-0 text-sm text-amber hover:scale-120 @click="$emit('toggleVisible', raidInfo, type)" />
-      <div v-else i-carbon:star absolute right-0 top-0 text-sm hover:scale-120 @click="$emit('toggleVisible', raidInfo, type)" />
+      <div v-if="raidInfo.visiable" i-carbon:star-filled absolute right-0 top-0 text-sm text-amber hover:scale-120
+        @click="$emit('toggleVisible', raidInfo, type)" />
+      <div v-else i-carbon:star absolute right-0 top-0 text-sm hover:scale-120
+        @click="$emit('toggleVisible', raidInfo, type)" />
       <div relative shrink-0>
         <img w-100px :src="getQuestImg(raidInfo.quest_id)">
         <div mt-2px fc gap-2px>
@@ -80,6 +82,17 @@ function getMsg(item: RaidInfo) {
             <div v-if="raidInfo.quest_id !== '303141'" text-xs>
               {{ getRatio(raidInfo.goldBrick, raidInfo.blueChest) }}%
             </div>
+          </div>
+          <div v-if="type === 1 && raidInfo.quest_id !== '303141'" class="desc-item">
+            <el-badge :value="raidInfo.ring1" type="danger" :max="999999">
+              <img w-30px :src="getLocalImg('ring1', 'item') ">
+            </el-badge>
+            <el-badge :value="raidInfo.ring2" type="danger" :max="999999">
+              <img w-30px :src="getLocalImg('ring2', 'item') ">
+            </el-badge>
+            <el-badge :value="raidInfo.ring3" type="danger" :max="999999">
+              <img w-30px :src="getLocalImg('ring3', 'item') ">
+            </el-badge>
           </div>
           <div v-if="type === 2" class="desc-item">
             <el-badge :value="raidInfo.eternitySand" type="danger" :max="999999">

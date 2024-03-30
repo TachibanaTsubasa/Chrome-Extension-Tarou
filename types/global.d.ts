@@ -174,6 +174,9 @@ declare module 'myStorage' {
     total?: number
     blueChest?: number
     goldBrick?: number
+    ring1?: number
+    ring2?: number
+    ring3?: number
     eternitySand?: number
     lastDropCount?: number
     lastDropTake?: number
